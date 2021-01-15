@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+<title>BodyPercussionSimulator
+</title>
+
+<style>
+audio {display: none;
+
+}
+.muted {
+border: 2px dashed blue;
+}
+</style>
+</head>
+
+<body>
+
+<button id="playAll" type="button">Tout jouer</button> 
+
+<audio id="player1" controls loop
+    src="media/son1.mp3">     
+</audio>
+
+<img src="images/mute.png"
+    id="mute1"/>
+<audio id="player2" controls loop
+    src="media/son2.mp3">     
+</audio>
+<img src="images/mute.png"
+    id="mute2"/>
+<audio id="player3" controls loop
+    src="media/son3.mp3">     
+</audio>
+<img src="images/mute.png"
+    id="mute3"/>
+<audio id="player4" controls loop
+    src="media/son4.mp3">     
+</audio>
+<img src="images/mute.png"
+    id="mute4"/>
+<script type="text/javascript">
+
+var btn = document.getElementById("playAll");
+var plr1 = document.getElementById("player1");
+var plr2 = document.getElementById("player2");
+var plr3 = document.getElementById("player3");
+var plr4 = document.getElementById("player4");
+
+var mute1 = document.getElementById("mute1");
+var mute2 = document.getElementById("mute2");
+var mute3 = document.getElementById("mute3");
+var mute4 = document.getElementById("mute4");
+
+//plr1.play(); 
+btn.addEventListener("click", function(){
+	if (!plr1.paused){
+		btn.innerHTML = "Pause"
+		plr1.pause();
+		plr2.pause();
+		plr3.pause();
+		plr4.pause();
+	}
+
+	else {
+		btn.innerHTML = "Reprendre"
+		plr1.play();
+		plr2.play();
+		plr3.play();
+		plr4.play();
+	}
+}
+);
+
+
+
+mute1.addEventListener("click", function(){
+	plr1.muted = !plr1.muted;
+	mute1.classList.toggle("muted")
+}
+);
+ 
+mute2.addEventListener("click", function(){
+	plr2.muted = !plr2.muted;
+	mute2.classList.toggle("muted")
+}
+);
+mute3.addEventListener("click", function(){
+	plr3.muted = !plr3.muted;
+	mute3.classList.toggle("muted")
+}
+);
+mute4.addEventListener("click", function(){
+	plr4.muted = !plr4.muted;
+	mute4.classList.toggle("muted")
+}
+);
+</script>
+</body>
+
+</html>
