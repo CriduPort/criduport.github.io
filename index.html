@@ -56,7 +56,7 @@ var mute4 = document.getElementById("mute4");
 //plr1.play(); 
 btn.addEventListener("click", function(){
 	if (!plr1.paused){
-		btn.innerHTML = "Pause"
+		btn.innerHTML = "Reprendre"
 		plr1.pause();
 		plr2.pause();
 		plr3.pause();
@@ -64,7 +64,7 @@ btn.addEventListener("click", function(){
 	}
 
 	else {
-		btn.innerHTML = "Reprendre"
+		btn.innerHTML = "Pause"
 		plr1.play();
 		plr2.play();
 		plr3.play();
