@@ -17,7 +17,7 @@ border: 2px dashed blue;
 
 <body>
 
-<button id="playAll" type="button">Tout jouer</button> 
+<button id="playAll" type="button">Jouer</button> 
 
 <audio id="player1" controls loop
     src="media/son1.mp3">     
@@ -56,7 +56,7 @@ var mute4 = document.getElementById("mute4");
 //plr1.play(); 
 btn.addEventListener("click", function(){
 	if (!plr1.paused){
-		btn.innerHTML = "Reprendre"
+		btn.innerHTML = "Jouer"
 		plr1.pause();
 		plr2.pause();
 		plr3.pause();
