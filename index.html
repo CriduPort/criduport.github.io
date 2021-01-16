@@ -3,42 +3,66 @@
   <title>BodyPercussionSimulator
   </title>
   <style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
   audio {
     display: none;
+  }
+  .container {
+    text-align: center;
+  }
+  #playAll {
+    margin-bottom: 2rem;
+  }
+  img {
+    border: 2px solid transparent;
+    cursor: pointer;
   }
   .muted {
     border: 2px dashed blue;
   }
+  .wrapper {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+  }
   </style>
 </head>
 <body>
-
+<div class="container">
+  <h1>BodyPercussionSimulator</h1>
   <button id="playAll" type="button">Jouer</button>
+  <div class="wrapper">
+    <audio id="player1" controls loop
+        src="media/son1.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute1"/>
 
-  <audio id="player1" controls loop
-      src="media/son1.mp3">
-  </audio>
-  <img src="images/mute.png"
-      id="mute1"/>
+    <audio id="player2" controls loop
+        src="media/son2.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute2"/>
 
-  <audio id="player2" controls loop
-      src="media/son2.mp3">
-  </audio>
-  <img src="images/mute.png"
-      id="mute2"/>
+    <audio id="player3" controls loop
+        src="media/son3.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute3"/>
 
-  <audio id="player3" controls loop
-      src="media/son3.mp3">
-  </audio>
-  <img src="images/mute.png"
-      id="mute3"/>
-
-  <audio id="player4" controls loop
-      src="media/son4.mp3">
-  </audio>
-  <img src="images/mute.png"
-      id="mute4"/>
-
+    <audio id="player4" controls loop
+        src="media/son4.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute4"/>
+  </div>
+</div>
   <script type="text/javascript">
     var btn = document.getElementById("playAll");
     var plr1 = document.getElementById("player1");
