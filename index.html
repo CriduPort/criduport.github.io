@@ -1,102 +1,118 @@
 <html>
-
 <head>
-
-<title>BodyPercussionSimulator
-</title>
-
-<style>
-audio {display: none;
-
-}
-.muted {
-border: 2px dashed blue;
-}
-</style>
+  <title>BodyPercussionSimulator
+  </title>
+  <style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  audio {
+    display: none;
+  }
+  .container {
+    text-align: center;
+  }
+  #playAll {
+    margin-bottom: 2rem;
+  }
+  img {
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  .muted {
+    border: 2px dashed blue;
+  }
+  .wrapper {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  </style>
 </head>
-
 <body>
+<div class="container">
+  <h1>BodyPercussionSimulator</h1>
+  <button id="playAll" type="button">Jouer</button>
+  <div class="wrapper">
+    <audio id="player1" controls loop
+        src="media/son1.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute1"/>
 
-<button id="playAll" type="button">Jouer</button> 
+    <audio id="player2" controls loop
+        src="media/son2.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute2"/>
 
-<audio id="player1" controls loop
-    src="media/son1.mp3">     
-</audio>
+    <audio id="player3" controls loop
+        src="media/son3.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute3"/>
 
-<img src="images/mute.png"
-    id="mute1"/>
-<audio id="player2" controls loop
-    src="media/son2.mp3">     
-</audio>
-<img src="images/mute.png"
-    id="mute2"/>
-<audio id="player3" controls loop
-    src="media/son3.mp3">     
-</audio>
-<img src="images/mute.png"
-    id="mute3"/>
-<audio id="player4" controls loop
-    src="media/son4.mp3">     
-</audio>
-<img src="images/mute.png"
-    id="mute4"/>
-<script type="text/javascript">
+    <audio id="player4" controls loop
+        src="media/son4.mp3">
+    </audio>
+    <img src="images/mute.png"
+        id="mute4"/>
+  </div>
+</div>
+  <script type="text/javascript">
+    var btn = document.getElementById("playAll");
+    var plr1 = document.getElementById("player1");
+    var plr2 = document.getElementById("player2");
+    var plr3 = document.getElementById("player3");
+    var plr4 = document.getElementById("player4");
 
-var btn = document.getElementById("playAll");
-var plr1 = document.getElementById("player1");
-var plr2 = document.getElementById("player2");
-var plr3 = document.getElementById("player3");
-var plr4 = document.getElementById("player4");
+    var mute1 = document.getElementById("mute1");
+    var mute2 = document.getElementById("mute2");
+    var mute3 = document.getElementById("mute3");
+    var mute4 = document.getElementById("mute4");
 
-var mute1 = document.getElementById("mute1");
-var mute2 = document.getElementById("mute2");
-var mute3 = document.getElementById("mute3");
-var mute4 = document.getElementById("mute4");
+    //plr1.play();
+    btn.addEventListener("click", function(){
+    	if (!plr1.paused) {
+    		btn.innerHTML = "Jouer"
+    		plr1.pause();
+    		plr2.pause();
+    		plr3.pause();
+    		plr4.pause();
+    	}
+    	else {
+    		btn.innerHTML = "Pause"
+    		plr1.play();
+    		plr2.play();
+    		plr3.play();
+    		plr4.play();
+    	}
+    });
 
-//plr1.play(); 
-btn.addEventListener("click", function(){
-	if (!plr1.paused){
-		btn.innerHTML = "Jouer"
-		plr1.pause();
-		plr2.pause();
-		plr3.pause();
-		plr4.pause();
-	}
+    mute1.addEventListener("click", function(){
+    	plr1.muted = !plr1.muted;
+    	mute1.classList.toggle("muted")
+    });
 
-	else {
-		btn.innerHTML = "Pause"
-		plr1.play();
-		plr2.play();
-		plr3.play();
-		plr4.play();
-	}
-}
-);
+    mute2.addEventListener("click", function(){
+    	plr2.muted = !plr2.muted;
+    	mute2.classList.toggle("muted")
+    });
 
+    mute3.addEventListener("click", function(){
+    	plr3.muted = !plr3.muted;
+    	mute3.classList.toggle("muted")
+    });
 
-
-mute1.addEventListener("click", function(){
-	plr1.muted = !plr1.muted;
-	mute1.classList.toggle("muted")
-}
-);
- 
-mute2.addEventListener("click", function(){
-	plr2.muted = !plr2.muted;
-	mute2.classList.toggle("muted")
-}
-);
-mute3.addEventListener("click", function(){
-	plr3.muted = !plr3.muted;
-	mute3.classList.toggle("muted")
-}
-);
-mute4.addEventListener("click", function(){
-	plr4.muted = !plr4.muted;
-	mute4.classList.toggle("muted")
-}
-);
-</script>
+    mute4.addEventListener("click", function(){
+    	plr4.muted = !plr4.muted;
+    	mute4.classList.toggle("muted")
+    });
+  </script>
 </body>
 
 </html>
